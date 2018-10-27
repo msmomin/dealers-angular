@@ -1,0 +1,9 @@
+<ng-container *ngIf="options">
+
+  <select name="getOptions" [(ngModel)]="currentOption" (change)="OptionChange($event)">
+    <option *ngFor="let dealer of  options" [value]="dealer.url">{{dealer.name}}</option>
+  </select>
+
+  <app-table-component [data]="tableData" *ngIf="tableData"></app-table-component>
+
+</ng-container>

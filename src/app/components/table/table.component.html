@@ -1,0 +1,16 @@
+<div class="container">
+  <table class="table table-bordered" *ngIf="data">
+    <thead>
+      <tr>
+        <th *ngFor="let columns of data[0] | ObjectIteration">{{columns.key}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of data">
+        <td *ngFor="let rowData of row | ObjectIteration"> 
+          {{ rowData.value }} 
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
