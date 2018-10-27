@@ -1,3 +1,5 @@
+import { Options } from './interfaces/options';
+
 import {
   DealersService
 } from './services/dealers.service';
@@ -11,21 +13,17 @@ import {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'Socket-Angular';
-  private options: any;
+  private options: Options[];
   public currentOption: any;
   public tableData: any;
 
   constructor(private dealerService: DealersService) {
     // getting options
-    this.dealerService.getOptions().subscribe(res => {
-      this.options = JSON.parse(res['_body']);
+    this.dealerService.getOptions().subscribe(response => {
+      this.options = response;
     });
-  }
-
-  public ngOnInit() {
-
   }
 
   public OptionChange($event: Event) {
@@ -34,7 +32,7 @@ export class AppComponent implements OnInit {
         continue;
       }
       this.dealerService.getData(option.url).subscribe(res => {
-        this.tableData = JSON.parse(res['_body']);
+        this.tableData = res;
       });
       break;
     }
