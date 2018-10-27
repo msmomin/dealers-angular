@@ -1,6 +1,5 @@
-<div class="container">
-  <table class="table table-bordered" *ngIf="data">
-    <thead>
+  <table class="table table-bordered table-striped" *ngIf="data">
+    <thead class="thead-dark">
       <tr>
         <th *ngFor="let columns of data[0] | ObjectIteration">{{columns.key}}</th>
       </tr>
@@ -13,4 +12,3 @@
       </tr>
     </tbody>
   </table>
-</div>

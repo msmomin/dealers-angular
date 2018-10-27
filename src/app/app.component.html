@@ -1,9 +1,11 @@
-<ng-container *ngIf="options">
-
-  <select name="getOptions" [(ngModel)]="currentOption" (change)="OptionChange($event)">
-    <option *ngFor="let dealer of  options" [value]="dealer.url">{{dealer.name}}</option>
-  </select>
-
+<div class="container" *ngIf="options">
+  <form class="form-inline">
+    <div class="form-group">
+      <label for="getOptions">Select Option to fetch Data </label>
+      <select class="form-control  mx-sm-3 mb-2" name="getOptions" [(ngModel)]="currentOption" (change)="OptionChange($event)">
+        <option *ngFor="let dealer of  options" [value]="dealer.url">{{dealer.name}}</option>
+      </select>
+    </div>
+  </form>
   <app-table-component [data]="tableData" *ngIf="tableData"></app-table-component>
-
-</ng-container>
+</div>
